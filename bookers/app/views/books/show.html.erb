@@ -1,0 +1,10 @@
+<p class="notice-1"><%= notice %></p>
+<h2 class="created"><strong>Title:</strong> <%= @book.title %></h2>
+
+<h2 class="created"><strong>Body:</strong> <%= @book.body %></h2>
+
+<p>
+<%= link_to "Edit",edit_book_path(@book.id) %>
+|
+<a href="/books">Back</a>
+</p>
