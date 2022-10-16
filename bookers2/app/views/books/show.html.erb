@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+
+    <%= render 'common', user: @book.user, book: @book, book_new: @book_new %>
+
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <p><%= link_to image_tag(@book.user.get_profile_image(100,100)),user_path(@book.user.id) %></p>
+              <p><%= link_to @book.user.name, user_path(@book.user.id) %></p>
+            </td>
+            <td>
+              <p><%= link_to @book.title, user_path(@book.user.id) %></p>
+            </td>
+            <td>
+              <p><%= @book.body %></p>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-outline-secondary bg-success text-white" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？",class: "btn btn-outline-secondary bg-danger text-white" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
